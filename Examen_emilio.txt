@@ -1,0 +1,33 @@
+EXAMEN 
+
+
+1.a
+2.WHERE se utiliza para condiciones a nivel de fila antes del GROUP BY 
+  HAVING se utiliza para condiciones a nivel de grupo después del GROUP BY y permite funciones de agregación
+3.c
+4.a
+5.El meme del avion hace referencia a que los pasajeros son como los cambios, entonces los que tienes en el avion pues son los que ya tienes en el area de preparación listos para mandar al repositorio remoto y pues con el git push es que los subes al repositorio haciendo referencia al avion volando , pero si solo pones git add son como los "pasajeros " que vas a meter a tu proximo commit 
+
+
+
+
+Practicos
+1.
+select avg (edad ) as Edad from alumnos
+where apellido like "%ez"
+
+
+
+2.
+select nombre,apellido, max(calificaciones.calificacion) as mejor_cali from alumnos
+left join calificaciones on alumnos.expediente=calificaciones.expediente
+where calificaciones.calificacion is not null 
+group by nombre,apellido;
+
+
+
+
+3.
+select DISTINCT nombre,apellido  from alumnos
+left join calificaciones on alumnos.expediente=calificaciones.expediente
+where calificaciones.calificacion > (SELECT avg (calificacion ) from calificaciones );
